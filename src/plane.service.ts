@@ -21,7 +21,7 @@ export type Plane = {
 };
 
 @Injectable()
-export class AppService {
+export class PlaneService {
   getAllPlanes(): Plane[] {
     const numberOfPlanes = Math.floor(Math.random() * 10);
 

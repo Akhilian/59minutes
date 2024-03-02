@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { PlaneController } from './planeController';
-import { AppService } from './app.service';
+import { PlaneService } from './plane.service';
+import { ScheduleModule } from '@nestjs/schedule';
+import { CheckOnlineFlightsService } from './check-online-flights/check-online-flights.service';
 
 @Module({
-  imports: [],
+  imports: [ScheduleModule.forRoot()],
   controllers: [PlaneController],
-  providers: [AppService],
+  providers: [PlaneService, CheckOnlineFlightsService],
 })
 export class RootModule {}
