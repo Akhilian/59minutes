@@ -9,10 +9,15 @@ export class CheckOnlineFlightsService {
   constructor(private readonly appService: PlaneService) {}
 
   @Cron(CronExpression.EVERY_10_SECONDS)
-  handleCron() {
+  checkOnlineFlights() {
     const planes = this.appService.getAllPlanes();
     this.logger.warn(
       `Checking online flights... ${planes.length} planes found`,
     );
+  }
+
+  @Cron(CronExpression.EVERY_10_SECONDS)
+  handleCron() {
+    throw new Error('Error in handleCron');
   }
 }
